@@ -16,14 +16,19 @@ export class PlistComponent implements OnInit {
   page: number;
   barraPaginacion: string[];
   pageSize: number = 10;
+  strUrl:String="";
+  
 
 
   constructor(
     private oPaginationService: PaginationService,
-    private oPostService: PostService
+    private oPostService: PostService,
+
   ) {
+    this
     this.page = 1;
     this.getPage();
+    
   }
 
   ngOnInit(): void {

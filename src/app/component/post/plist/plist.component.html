@@ -35,12 +35,17 @@
                 </ul>
             </div>
 
-
+            <a class="nav-link" [class.active]="strUrl=='/view/:id'" [routerLink]="['/plist']"> Posts</a>
 
             <table class="table table-striped table-hover">
                 <tr *ngFor="let fila of aPosts">
+                    <th> Título</th>
+                    <th> Etiquetas</th>
+                    <th> Link al Post</th>
                     <td>{{fila.titulo}}</td>
                     <td>{{fila.etiquetas}}</td>
+                    <td>{{fila.fecha}}</td>
+                    <td><a class="nav-link" [class.active]="strUrl=='/view'" [routerLink]="['/view/', fila.id]"> Ver</a></td>
                 </tr>
 
             </table>

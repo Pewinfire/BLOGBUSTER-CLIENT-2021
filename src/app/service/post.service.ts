@@ -5,7 +5,7 @@ import { API_URL, environment, httpOptions } from 'src/environments/environment'
 
 
 import { catchError, retry, shareReplay, tap } from 'rxjs/operators';
-import { IPage } from '../model/model-interfaces';
+import { IPage, IPost } from '../model/model-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,10 @@ export class PostService {
   getPage(rpp: number, page: number): Observable<IPage> {    
     return this.http.get<IPage>(this.sURL + "?rpp=" + rpp + "&page=" + page, httpOptions);
   }
-
+  
+  getOne(id: number): Observable<IPost> {    
+    return this.http.get<IPost>(this.sURL + "?id=" + id, httpOptions);
+  }
 
 
 }
