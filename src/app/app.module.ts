@@ -16,7 +16,13 @@ import { SessionResolver } from './resolve/session.resolve';
 import { PlistComponent } from './component/post/plist/plist.component';
 import { PostService } from './service/post.service';
 import { ViewComponent } from './component/view/view.component';
-
+import { TrimPipe } from './pipe/trim.pipe';
+import { showDateTimePipe } from './pipe/showDateTime.pipe';
+import { CreateComponent } from './component/create/create.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogoConfirmacionComponent } from './service/dialogo-confirmacion/dialogo-confirmacion.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -27,14 +33,26 @@ import { ViewComponent } from './component/view/view.component';
     LogoutComponent,
     MenuComponent,
     PlistComponent,
-    ViewComponent
+    ViewComponent,
+    TrimPipe,
+    showDateTimePipe,
+    CreateComponent,
+    DialogoConfirmacionComponent,
+    
+
+
+    
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    MatDialogModule, // <--- Aquí
+    BrowserAnimationsModule, // <--- Aquí
+    MatButtonModule,
   ],
   providers: [
     SessionService,
@@ -42,6 +60,9 @@ import { ViewComponent } from './component/view/view.component';
     PostService,
     PaginationService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogoConfirmacionComponent// <--- Aquí
+  ]
 })
 export class AppModule { }

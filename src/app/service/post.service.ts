@@ -55,5 +55,14 @@ export class PostService {
     return this.http.get<IPost>(this.sURL + "?id=" + id, httpOptions);
   }
 
+  create(postData : string): Observable<number>{
+    if (environment) console.log("SessionService: login");
+    return this.http.post<number>(this.sURL, postData, httpOptions).pipe(
+      tap((u: number) => console.log("Posted", u)),
+      retry(1),
+      catchError(this.handleError));
+
+  }
+
 
 }

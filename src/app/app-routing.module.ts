@@ -7,6 +7,7 @@ import { SecretComponent } from './component/secret/secret.component';
 import { SessionResolver } from './resolve/session.resolve';
 import { PlistComponent } from './component/post/plist/plist.component';
 import { ViewComponent } from './component/view/view.component';
+import { CreateComponent } from './component/create/create.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'secret', component: SecretComponent, resolve: { message: SessionResolver } },
   { path: 'plist', component: PlistComponent, resolve: { message: SessionResolver } },
   { path: 'view/:id', component: ViewComponent, resolve: { message: SessionResolver } },
-  
+  { path: 'create', component: CreateComponent, resolve: { message: SessionResolver } },
 ];
 
 @NgModule({

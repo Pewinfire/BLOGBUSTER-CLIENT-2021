@@ -25,7 +25,7 @@ export class PlistComponent implements OnInit {
     private oPostService: PostService,
 
   ) {
-    this
+  
     this.page = 1;
     this.getPage();
     
