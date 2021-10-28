@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Router, ɵassignExtraOptionsToRouter } from '@angular/router';
 import { IFecha } from 'src/app/model/model-interfaces';
 import { PostService } from 'src/app/service/post.service';
@@ -21,7 +21,9 @@ export class CreateComponent implements OnInit {
     private oPostService: PostService,
     private FormBuilder: FormBuilder,
     private oRouter: Router,
-    private dialogo: MatDialog
+    private dialogo: MatDialog,
+    private forms :FormsModule,
+    private reactive : ReactiveFormsModule.
     ) {
 
  
@@ -31,7 +33,7 @@ export class CreateComponent implements OnInit {
         fecha: [''],
         hora: [''],
         etiquetas: [],
-        visible:[true]
+        visible:[false]
       });
     }
   ngOnInit(): void {
