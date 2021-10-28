@@ -5,6 +5,7 @@ import { IFecha, IPost } from 'src/app/model/model-interfaces';
 import { PostService } from 'src/app/service/post.service';
 import { MatDialog } from "@angular/material/dialog"
 import { DialogoConfirmacionComponent } from 'src/app/service/dialogo-confirmacion/dialogo-confirmacion.component';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-update',
@@ -16,7 +17,8 @@ export class UpdateComponent implements OnInit {
     postForm : FormGroup
     result : number
     Postid: number
-    fechaVacia: IFecha
+    fecha: IFecha
+    fecho: String
   
     constructor( 
       private oPostService: PostService,
@@ -43,16 +45,17 @@ export class UpdateComponent implements OnInit {
     getOne = () => {
       this.Postid = this.oActivatedRoute.snapshot.params.id
       this.oPostService.getOne(this.Postid).subscribe((oPost: IPost) => {
-
+        
         this.postForm.setValue({
           titulo: oPost.titulo,
           cuerpo: oPost.cuerpo,
-          fecha: oPost.fecha.date,
-          hora: oPost.fecha.time,
+          fecha:  oPost.fecha.date ,
+          hora: oPost.fecha.time, 
           etiquetas: oPost.etiquetas,
           visible: oPost.visible
         });
-        this.fechaVacia = oPost.fecha;
+        
+        this.fecho = String(oPost.fecha.date);
       });
     };
     onSubmit() {
@@ -63,7 +66,7 @@ export class UpdateComponent implements OnInit {
       etiquetas: this.postForm.get('etiquetas')!.value, 
       visible: this.postForm.get('visible')!.value};
       console.log("post:onSubmit: ", postData);
-  
+      
       this.dialogo
         .open(DialogoConfirmacionComponent, {
           data: `¿Esta seguro de que quiere modficar el post?`
@@ -83,7 +86,7 @@ export class UpdateComponent implements OnInit {
   
           } else {
             alert("No se modificara el post)");
-            this.oRouter.navigate(['/plist'])
+            //this.oRouter.navigate(['/plist'])
             
           }
         });
