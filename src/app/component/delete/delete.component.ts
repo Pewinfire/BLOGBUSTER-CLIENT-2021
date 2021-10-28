@@ -46,21 +46,16 @@ export class DeleteComponent implements OnInit {
         this.visible = oPost.visible;
         setTimeout(()=>{   this.dialogo
           .open(DialogoConfirmacionComponent, {
-            data: `¿Esta seguro de que quiere publicar el post?`
+            data: `¿Esta seguro de que quiere borrar el post?`
           })
           .afterClosed()
           .subscribe((confirmado: Boolean) => {
             if (confirmado) {
               this.oPostService.delete(this.id).subscribe(success => {
                 this.result = success;
-                if (this.result == 1) {
-                  alert("El post se borrado correctamente");
-                  this.oRouter.navigate(['/plist'])
-                } else {
-                  alert("Ha ocurrido un error");
-                }                        
+                                     
               });
-    
+              this.oRouter.navigate(['/plist'] ) 
             } else {
               alert("No se borrara el post)");
               this.oRouter.navigate(['/view/' + this.id])

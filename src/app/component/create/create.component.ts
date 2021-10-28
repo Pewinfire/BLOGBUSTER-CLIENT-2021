@@ -23,7 +23,7 @@ export class CreateComponent implements OnInit {
     private oRouter: Router,
     private dialogo: MatDialog,
     private forms :FormsModule,
-    private reactive : ReactiveFormsModule.
+ 
     ) {
 
  
