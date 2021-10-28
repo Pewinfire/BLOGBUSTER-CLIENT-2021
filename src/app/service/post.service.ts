@@ -64,5 +64,20 @@ export class PostService {
 
   }
 
+  update(postData : string):Observable<number>{
+    if (environment) console.log("SessionService: login");
+    return this.http.put<number>(this.sURL, postData, httpOptions).pipe(
+      tap((u: number) => console.log("Updated", u)),
+      retry(1),
+      catchError(this.handleError));
 
+  }
+  delete(id:number):Observable<number>{
+    if (environment) console.log("SessionService: login");
+    return this.http.delete<number>(this.sURL + "?id=" + id, httpOptions).pipe(
+      tap((u: number) => console.log("Deleted", u)),
+      retry(1),
+      catchError(this.handleError));
+
+  }
 }

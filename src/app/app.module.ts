@@ -23,6 +23,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { DialogoConfirmacionComponent } from './service/dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { DeleteComponent } from './component/delete/delete.component';
+import { UpdateComponent } from './component/update/update.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { MatButtonModule } from '@angular/material/button';
     showDateTimePipe,
     CreateComponent,
     DialogoConfirmacionComponent,
+    DeleteComponent,
+    UpdateComponent,
     
 
 

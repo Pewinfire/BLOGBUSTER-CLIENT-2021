@@ -42,12 +42,12 @@
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
                                         <a class="btn btn-success" [class.active]="strUrl == '/view'"
                                             [routerLink]="['/view/', fila.id]"><i class="fas fa-eye"></i></a>
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="fas fa-pen"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                            <a class="btn btn-warning" [class.active]="strUrl == '/update'"
+                                            [routerLink]="['/update/', fila.id]"><i class="fas fa-pen"></i></a>
+                                        
+                                            <a class="btn btn-danger" [class.active]="strUrl == '/danger'"
+                                            [routerLink]="['/delete/', fila.id]"><i class="fas fa-trash"></i></a>
+                                        
                                     </div>
                                 </td>
                             </tr>
