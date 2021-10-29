@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { DeleteComponent } from './component/delete/delete.component';
 import { UpdateComponent } from './component/update/update.component';
+import { CheckPipe } from './pipe/check.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { UpdateComponent } from './component/update/update.component';
     DialogoConfirmacionComponent,
     DeleteComponent,
     UpdateComponent,
+    CheckPipe,
     
 
 

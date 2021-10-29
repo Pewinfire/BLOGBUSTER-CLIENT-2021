@@ -37,7 +37,7 @@
                                 <td>{{ fila.cuerpo | trim: 10 }}</td>
                                 <td>{{ fila.fecha | showDateTime }}</td>
                                 <td>{{ fila.etiquetas | trim: 10 }}</td>
-                                <td>{{ fila.visible }}</td>
+                                <td style="text-align: center;"><i class=" {{ fila.visible | checking}}"></i></td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
                                         <a class="btn btn-success" [class.active]="strUrl == '/view'"

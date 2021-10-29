@@ -2,6 +2,7 @@ import { PaginationService } from './../../../service/pagination.service';
 import { PostService } from './../../../service/post.service';
 import { Component, OnInit } from '@angular/core';
 import { IPage, IPost } from 'src/app/model/model-interfaces';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-plist',
@@ -23,8 +24,16 @@ export class PlistComponent implements OnInit {
   constructor(
     private oPaginationService: PaginationService,
     private oPostService: PostService,
-
+    private oActivatedRoute: ActivatedRoute,
+    private oRouter: Router,
   ) {
+    if (oActivatedRoute.snapshot.data.message) {
+      localStorage.setItem("user", oActivatedRoute.snapshot.data.message);
+      
+    } else {
+      oRouter.navigate(['/home']);
+      localStorage.clear();
+    }
   
     this.page = 1;
     this.getPage();

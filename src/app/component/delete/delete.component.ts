@@ -27,6 +27,13 @@ export class DeleteComponent implements OnInit {
     private oActivatedRoute: ActivatedRoute,
     private oRouter: Router,
     private dialogo: MatDialog) {
+      if (oActivatedRoute.snapshot.data.message) {
+        localStorage.setItem("user", oActivatedRoute.snapshot.data.message);
+    
+      } else {
+        oRouter.navigate(['/home']);
+        localStorage.clear();
+      }
     this.getOne();
     
   
@@ -57,7 +64,7 @@ export class DeleteComponent implements OnInit {
               });
               this.oRouter.navigate(['/plist'] ) 
             } else {
-              alert("No se borrara el post)");
+              
               this.oRouter.navigate(['/view/' + this.id])
             }
           });

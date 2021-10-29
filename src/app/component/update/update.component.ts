@@ -31,6 +31,13 @@ export class UpdateComponent implements OnInit {
       private dialogo: MatDialog,
       private oActivatedRoute: ActivatedRoute,
       ) {
+        if (oActivatedRoute.snapshot.data.message) {
+          localStorage.setItem("user", oActivatedRoute.snapshot.data.message);
+          
+        } else {
+          oRouter.navigate(['/home']);
+          localStorage.clear();
+        }
         this.Postid = this.oActivatedRoute.snapshot.params.id
         this.postForm = <FormGroup>this.FormBuilder.group({
           titulo: ['', [Validators.minLength(0)]],
@@ -53,7 +60,7 @@ export class UpdateComponent implements OnInit {
           titulo: oPost.titulo,
           cuerpo: oPost.cuerpo,
           fecha:  String(oPost.fecha.date.year).padStart(2,'0') +"-" + String(oPost.fecha.date.month).padStart(2,'0') + "-" + String(oPost.fecha.date.day).padStart(2,'0'),
-          hora: oPost.fecha.time.hour + ":" + oPost.fecha.time.minute, 
+          hora: String(oPost.fecha.time.hour).padStart(2,'0')  + ":" + String(oPost.fecha.time.minute).padStart(2,'0'), 
           etiquetas: oPost.etiquetas,
           visible : oPost.visible
         });
@@ -97,7 +104,7 @@ export class UpdateComponent implements OnInit {
             this.oPostService.update(JSON.stringify(postData)).subscribe(success => {
               this.result = success;
               if (this.result == 1) {
-                alert("El post se ha modificado correctamente");
+                
                 this.oRouter.navigate(['/view/'+ this.Postid])
               } else {
                 alert("Ha ocurrido un error");
@@ -105,7 +112,7 @@ export class UpdateComponent implements OnInit {
             });
   
           } else {
-            alert("No se modificara el post)");
+           
             //this.oRouter.navigate(['/plist'])
             
           }

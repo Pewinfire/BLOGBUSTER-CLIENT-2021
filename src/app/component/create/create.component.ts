@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { Router, ɵassignExtraOptionsToRouter } from '@angular/router';
+import { ActivatedRoute, Router, ɵassignExtraOptionsToRouter } from '@angular/router';
 import { IFecha } from 'src/app/model/model-interfaces';
 import { PostService } from 'src/app/service/post.service';
 import { MatDialog } from "@angular/material/dialog"
@@ -22,11 +22,18 @@ export class CreateComponent implements OnInit {
     private oPostService: PostService,
     private FormBuilder: FormBuilder,
     private oRouter: Router,
+    private oActivatedRoute: ActivatedRoute,
     private dialogo: MatDialog,
     private forms :FormsModule,
  
     ) {
-      
+      if (oActivatedRoute.snapshot.data.message) {
+        localStorage.setItem("user", oActivatedRoute.snapshot.data.message);
+        
+      } else {
+        localStorage.clear();
+        oRouter.navigate(['/home']);
+      }
  
       this.postForm = <FormGroup>this.FormBuilder.group({
         titulo: ['', [Validators.minLength(0)]],
@@ -64,7 +71,7 @@ export class CreateComponent implements OnInit {
           this.oPostService.create(JSON.stringify(postData)).subscribe(id => {
             this.id = id;
             if (id != null) {
-              alert("El post se ha publicado correctamente");
+              
               this.oRouter.navigate(['/view/'+ id])
             } else {
               alert("Ha ocurrido un error");
@@ -72,7 +79,7 @@ export class CreateComponent implements OnInit {
           });
 
         } else {
-          alert("No se publicara el post)");
+          
           
         }
       });
