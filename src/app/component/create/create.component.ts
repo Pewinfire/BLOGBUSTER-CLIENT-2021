@@ -16,6 +16,7 @@ export class CreateComponent implements OnInit {
   
   postForm : FormGroup
   id: number
+  checkbox: HTMLInputElement
 
   constructor( 
     private oPostService: PostService,
@@ -25,7 +26,7 @@ export class CreateComponent implements OnInit {
     private forms :FormsModule,
  
     ) {
-
+      
  
       this.postForm = <FormGroup>this.FormBuilder.group({
         titulo: ['', [Validators.minLength(0)]],
@@ -38,13 +39,20 @@ export class CreateComponent implements OnInit {
     }
   ngOnInit(): void {
   }
-
+  checked(){
+    this.checkbox =  <HTMLInputElement> document.getElementById("check")
+    if (this.checkbox.checked){
+      return true
+    }else{
+      return false
+    }
+}
   onSubmit() {
     const postData = { titulo: this.postForm.get('titulo')!.value, 
     cuerpo: this.postForm.get('cuerpo')!.value,
     fecha: this.postForm.get('fecha')!.value + " " +this.postForm.get('hora')!.value,
     etiquetas: this.postForm.get('etiquetas')!.value, 
-    visible: this.postForm.get('visible')!.value};
+    visible: this.checked()};
     console.log("post:onSubmit: ", postData);
     this.dialogo
       .open(DialogoConfirmacionComponent, {

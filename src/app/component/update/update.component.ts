@@ -5,7 +5,9 @@ import { IFecha, IPost } from 'src/app/model/model-interfaces';
 import { PostService } from 'src/app/service/post.service';
 import { MatDialog } from "@angular/material/dialog"
 import { DialogoConfirmacionComponent } from 'src/app/service/dialogo-confirmacion/dialogo-confirmacion.component';
-import { formatDate } from '@angular/common';
+
+
+
 
 @Component({
   selector: 'app-update',
@@ -18,24 +20,26 @@ export class UpdateComponent implements OnInit {
     result : number
     Postid: number
     fecha: IFecha
-    fecho: String
-  
+    check : String
+    true: String
+    checkbox: HTMLInputElement
+
     constructor( 
       private oPostService: PostService,
       private FormBuilder: FormBuilder,
       private oRouter: Router,
       private dialogo: MatDialog,
-      private oActivatedRoute: ActivatedRoute
+      private oActivatedRoute: ActivatedRoute,
       ) {
         this.Postid = this.oActivatedRoute.snapshot.params.id
-       
+        this.checkbox =  <HTMLInputElement> document.getElementById("check")
         this.postForm = <FormGroup>this.FormBuilder.group({
           titulo: ['', [Validators.minLength(0)]],
           cuerpo: [''],
           fecha: [''],
           hora: [''],
           etiquetas: [],
-          visible:[true]
+          visible:[false]
         });
         this.getOne();
       }
@@ -45,26 +49,43 @@ export class UpdateComponent implements OnInit {
     getOne = () => {
       this.Postid = this.oActivatedRoute.snapshot.params.id
       this.oPostService.getOne(this.Postid).subscribe((oPost: IPost) => {
-        
-        this.postForm.setValue({
+      this.checkbox =  <HTMLInputElement> document.getElementById("check") 
+      this.postForm.setValue({
           titulo: oPost.titulo,
           cuerpo: oPost.cuerpo,
-          fecha:  oPost.fecha.date ,
-          hora: oPost.fecha.time, 
+          fecha:  String(oPost.fecha.date.year).padStart(2,'0') +"-" + String(oPost.fecha.date.month).padStart(2,'0') + "-" + String(oPost.fecha.date.day).padStart(2,'0'),
+          hora: oPost.fecha.time.hour + ":" + oPost.fecha.time.minute, 
           etiquetas: oPost.etiquetas,
-          visible: oPost.visible
+          visible : oPost.visible
         });
+      
+        if (oPost.visible = true)
+        {
+          
+          this.checkbox.checked = true;
+        }else{
         
-        this.fecho = String(oPost.fecha.date);
+          this.checkbox.checked = false;
+        }
+        
       });
     };
+    checko(){
+      this.checkbox =  <HTMLInputElement> document.getElementById("check")
+      if (this.checkbox.checked){
+        return true
+      }else{
+        return false
+      }
+}
+
     onSubmit() {
       const postData = { titulo: this.postForm.get('titulo')!.value, 
       id: this.oActivatedRoute.snapshot.params.id,
       cuerpo: this.postForm.get('cuerpo')!.value,
       fecha: this.postForm.get('fecha')!.value + " " +this.postForm.get('hora')!.value,
       etiquetas: this.postForm.get('etiquetas')!.value, 
-      visible: this.postForm.get('visible')!.value};
+      visible:this.checko()};
       console.log("post:onSubmit: ", postData);
       
       this.dialogo
@@ -91,12 +112,11 @@ export class UpdateComponent implements OnInit {
           }
         });
       
+        
       
       return false;
     }
   
-    
-      
   
     
   }
