@@ -32,7 +32,6 @@ export class UpdateComponent implements OnInit {
       private oActivatedRoute: ActivatedRoute,
       ) {
         this.Postid = this.oActivatedRoute.snapshot.params.id
-        this.checkbox =  <HTMLInputElement> document.getElementById("check")
         this.postForm = <FormGroup>this.FormBuilder.group({
           titulo: ['', [Validators.minLength(0)]],
           cuerpo: [''],
