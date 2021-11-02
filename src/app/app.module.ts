@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { DeleteComponent } from './component/delete/delete.component';
 import { UpdateComponent } from './component/update/update.component';
 import { CheckPipe } from './pipe/check.pipe';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CheckPipe } from './pipe/check.pipe';
     DeleteComponent,
     UpdateComponent,
     CheckPipe,
+    ClockComponent,
     
 
 

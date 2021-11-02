@@ -47,8 +47,11 @@ export class PostService {
       catchError(this.handleError));
   }
 
-  getPage(rpp: number, page: number): Observable<IPage> {    
-    return this.http.get<IPage>(this.sURL + "?rpp=" + rpp + "&page=" + page, httpOptions);
+  getPage(rpp: number, page: number, order :string, dir: string, filter: string, match: string): Observable<IPage> {    
+    var getpag = this.sURL +"?page=" + page+ "&rpp=" + rpp + "&order=" + order + "&dir=" + dir +"&filter="+ filter +  "&match=" + match;
+    console.log(getpag)
+    return this.http.get<IPage>(getpag, httpOptions);
+
   }
   
   getOne(id: number): Observable<IPost> {    

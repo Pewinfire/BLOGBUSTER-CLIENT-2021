@@ -12,6 +12,7 @@ import { UpdateComponent } from './component/update/update.component';
 import { DeleteComponent } from './component/delete/delete.component';
 
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent, resolve: { message: SessionResolver } },
   { path: 'home', component: HomeComponent, resolve: { message: SessionResolver } },
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'create', component: CreateComponent, resolve: { message: SessionResolver } },
   { path: 'update/:id', component: UpdateComponent, resolve: { message: SessionResolver } },
   { path: 'delete/:id', component: DeleteComponent, resolve: { message: SessionResolver } },
-  
+
 ];
 
 @NgModule({
