@@ -96,7 +96,6 @@ export class PlistComponent implements OnInit {
   filterOn(Match: string):void{
     
     if(Match.length <= 0){
-      this.filter= "nulo";
       this.match= "nulo";
       
       this.getPage();
