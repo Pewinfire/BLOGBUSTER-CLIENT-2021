@@ -84,7 +84,7 @@ export class UpdateComponent implements OnInit {
         return false
       }
 }
-
+ 
     onSubmit() {
       const postData = { titulo: this.postForm.get('titulo')!.value, 
       id: this.oActivatedRoute.snapshot.params.id,

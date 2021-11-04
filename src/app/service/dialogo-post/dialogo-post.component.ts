@@ -16,7 +16,7 @@ export class DialogoPostComponent implements OnInit {
       this.oPost = data;
     }
     ngOnInit() {
-      this.dialogRef.updateSize('75%', '75%');
+      this.dialogRef.updateSize('50%', '75%');
     }
     openDialog(){
     const dialogConfig = new MatDialogConfig();

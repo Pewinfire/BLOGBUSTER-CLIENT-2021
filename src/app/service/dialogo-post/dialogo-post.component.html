@@ -1,30 +1,28 @@
-<div class="m-3">
-  <h2 class= "mb-3">Post</h2>
+<app-menu></app-menu>
+<div class="mx-auto">
+<div class="container mt-5">
   <div class="row">
-  <h5 class="col-1">ID:</h5>
-  <p class="col-11 ">{{oPost.id}}</p>
+    <div class="col-lg-12">
+      <article>
+        <header class="mb-4">
+          <h1 class="fw-bolder mb-1">BlogBuster 2021</h1>
+          <!-- Post meta content-->
+          <br>
+          <h3 class=" mb-1">{{oPost.titulo}}</h3>
+          <div class="text-muted fst-italic mb-2">Posted on {{oPost.fecha | showDateTime}} by Sergio Dung</div>
+          <!-- Post categories-->
+          <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{oPost.etiquetas}}</a>
+
+        </header>
+        <!-- Preview image figure-->
+        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg"
+            alt="..." /></figure>
+        <!-- Post content-->
+        <section class="mb-5">
+          <p class="fs-5 mb-4">{{oPost.cuerpo}}</p>
+        </section>
+      </article>
+      <!-- Comments section-->
+      
+  
   </div>
-  <div class="row">
-  <h5 class="col-1">Titulo:</h5>
-  <p class="col-11 ">{{oPost.titulo}}</p>
-</div>
-<div class="row">
-  <h5>Cuerpo:</h5>
-  <p >{{oPost.cuerpo}}</p>
-  </div>
-  <div class="row">
-  <h5 class="col-1 ">Fecha:</h5>
-  <p class="col-11 ">{{oPost.fecha|showDateTime}}</p>
-</div>
-  <div class="row">
-  <h5 class="col-2 ">Etiquetas:</h5>
-  <p class="col-10 ">{{oPost.etiquetas}}</p>
-</div>
-<div class="row">
-  <h5 class="col-2">Visible:</h5>
-  <i class="col-10 fa-2x {{oPost.visible | checking}}"></i>
-</div>
-  <div mat-dialog-actions class="flex-row-reverse">
-    <button mat-button (click)="confirmado()" cdkFocusInitial>Cerrar</button>
-  </div>
-</div>

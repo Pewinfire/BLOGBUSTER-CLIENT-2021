@@ -126,6 +126,8 @@ export class PlistComponent implements OnInit {
     }
     
   }
+
+
   getPage = () => {
     this.oPostService
       .getPage(
@@ -146,6 +148,17 @@ export class PlistComponent implements OnInit {
         );
       });
   };
+  updateVis(oPost: IPost){
+    var uPost: IPost = oPost
+    if(oPost.visible){
+      uPost.visible = false
+    }else{
+      uPost.visible = true
+    }
+    
+    console.log("post:onSubmit: ", uPost);
+    this.oPostService.update(JSON.stringify(uPost))
+  }
   modal(fila : IPost ){
       const dialogConfig = new MatDialogConfig;
       dialogConfig.data={
@@ -159,11 +172,6 @@ export class PlistComponent implements OnInit {
       }
       this.dialogo.open(DialogoPostComponent, dialogConfig);
       ;
-
-        
-          
-          
-        
-
   };
 }
+
