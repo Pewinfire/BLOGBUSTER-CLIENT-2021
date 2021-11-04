@@ -24,6 +24,9 @@
                                   <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false " value= ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
                                   <div class="dropdown-menu dropdown-menu-right" >
                                      <ul class="category_filters" >
+                                        <li >
+                                            <input #todoR type="radio" name="radios"  id="todoR" [checked]="check" (change)="onCheck(todoR.checked,campos[6])" ><label class="category-label" for="id" >Todo</label>
+                                           </li>
                                       <li >
                                        <input #idR type="radio" name="radios"  id="idR" [checked]="check" (change)="onCheck(idR.checked,campos[0])" ><label class="category-label" for="id" >Id</label>
                                       </li>
@@ -75,11 +78,13 @@
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
                                         <a class="btn btn-success" [class.active]="strUrl == '/view'"
                                             [routerLink]="['/view/', fila.id]"><i class="fas fa-eye"></i></a>
+                                            <a class="btn btn-info" (click)="modal(fila)"><i class="fas fa-search"></i></a>
                                             <a class="btn btn-warning" [class.active]="strUrl == '/update'"
                                             [routerLink]="['/update/', fila.id]"><i class="fas fa-pen"></i></a>
                                         
                                             <a class="btn btn-danger" [class.active]="strUrl == '/danger'"
                                             [routerLink]="['/delete/', fila.id]"><i class="fas fa-trash"></i></a>
+                                            
                                         
                                     </div>
                                 </td>

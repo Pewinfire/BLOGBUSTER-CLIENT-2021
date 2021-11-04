@@ -27,6 +27,7 @@ import { DeleteComponent } from './component/delete/delete.component';
 import { UpdateComponent } from './component/update/update.component';
 import { CheckPipe } from './pipe/check.pipe';
 import { ClockComponent } from './clock/clock.component';
+import { DialogoPostComponent } from './service/dialogo-post/dialogo-post.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ClockComponent } from './clock/clock.component';
     UpdateComponent,
     CheckPipe,
     ClockComponent,
+    DialogoPostComponent,
     
 
 

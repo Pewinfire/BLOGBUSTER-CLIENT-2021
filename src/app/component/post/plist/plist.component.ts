@@ -1,8 +1,11 @@
 import { PaginationService } from './../../../service/pagination.service';
 import { PostService } from './../../../service/post.service';
 import { Component, OnInit } from '@angular/core';
-import { IPage, IPost } from 'src/app/model/model-interfaces';
+import { IDate, IPage, IPost } from 'src/app/model/model-interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogoPostComponent } from 'src/app/service/dialogo-post/dialogo-post.component';
+
 
 @Component({
   selector: 'app-plist',
@@ -30,6 +33,7 @@ export class PlistComponent implements OnInit {
     'fecha',
     'etiquetas',
     'visible',
+    'nulo'
   ]
   fa: string[] = [
     'fa fa-sort',
@@ -46,7 +50,8 @@ export class PlistComponent implements OnInit {
     private oPaginationService: PaginationService,
     private oPostService: PostService,
     private oActivatedRoute: ActivatedRoute,
-    private oRouter: Router
+    private oRouter: Router,
+    private dialogo: MatDialog,
   ) {
     if (oActivatedRoute.snapshot.data.message) {
       localStorage.setItem('user', oActivatedRoute.snapshot.data.message);
@@ -140,5 +145,25 @@ export class PlistComponent implements OnInit {
           this.page
         );
       });
+  };
+  modal(fila : IPost ){
+      const dialogConfig = new MatDialogConfig;
+      dialogConfig.data={
+      
+        id: fila.id,
+        titulo: fila.titulo,
+        cuerpo: fila.cuerpo,
+        fecha: fila.fecha,
+        etiquetas: fila.etiquetas,
+        visible: fila.visible
+      }
+      this.dialogo.open(DialogoPostComponent, dialogConfig);
+      ;
+
+        
+          
+          
+        
+
   };
 }

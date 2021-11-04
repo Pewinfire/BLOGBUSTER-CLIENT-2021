@@ -1,0 +1,30 @@
+<div class="m-3">
+  <h2 class= "mb-3">Post</h2>
+  <div class="row">
+  <h5 class="col-1">ID:</h5>
+  <p class="col-11 ">{{oPost.id}}</p>
+  </div>
+  <div class="row">
+  <h5 class="col-1">Titulo:</h5>
+  <p class="col-11 ">{{oPost.titulo}}</p>
+</div>
+<div class="row">
+  <h5>Cuerpo:</h5>
+  <p >{{oPost.cuerpo}}</p>
+  </div>
+  <div class="row">
+  <h5 class="col-1 ">Fecha:</h5>
+  <p class="col-11 ">{{oPost.fecha|showDateTime}}</p>
+</div>
+  <div class="row">
+  <h5 class="col-2 ">Etiquetas:</h5>
+  <p class="col-10 ">{{oPost.etiquetas}}</p>
+</div>
+<div class="row">
+  <h5 class="col-2">Visible:</h5>
+  <i class="col-10 fa-2x {{oPost.visible | checking}}"></i>
+</div>
+  <div mat-dialog-actions class="flex-row-reverse">
+    <button mat-button (click)="confirmado()" cdkFocusInitial>Cerrar</button>
+  </div>
+</div>
