@@ -1,11 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light" id="mainNav">
-  <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" href="#page-top">BlogBuster</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-      aria-label="Toggle navigation">
-      Menu
-      <i class="fas fa-bars"></i>
+<nav class="navbar navbar-expand-lg fixed-top ">
+  <div class="container">
+    <a class="navbar-brand text-white m-1" href="#"><i class="fa fa-graduation-cap fa-lg "></i>&nbsp;&nbsp;BLOGBUSTER</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive">
+      <i class="fas fa-bars text-light"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
@@ -14,30 +11,29 @@
               class="fas fa-home"></i>
             Home</a>
         </li>
-        <li class="nav-item" *ngIf="!strUsuarioSession">
+        <li class="nav-item pl-1" *ngIf="!strUsuarioSession">
           <a class="nav-link" [class.active]="strUrl=='/login'" [routerLink]="['/login']"><i
               class="fas fa-sign-in-alt"></i> Login</a>
         </li>
-        <li class="nav-item" *ngIf="strUsuarioSession">
+        <li class="nav-item pl-1" *ngIf="strUsuarioSession">
           <a class="nav-link" [class.active]="strUrl=='/logout'" [routerLink]="['/logout']"><i
               class="fas fa-sign-out-alt"></i> Logout</a>
         </li>
-        <li class="nav-item" *ngIf="strUsuarioSession">
+        <li class="nav-item pl-1" *ngIf="strUsuarioSession">
           <a class="nav-link" [class.active]="strUrl=='/secret'" [routerLink]="['/secret']"><i class="fas fa-key"></i>
             Secret</a>
         </li>
-        <li class="nav-item" *ngIf="strUsuarioSession">
+        <li class="nav-item pl-1" *ngIf="strUsuarioSession">
           <a class="nav-link" [class.active]="strUrl=='/plist'" [routerLink]="['/plist']"><i
               class="fas fa-list-alt"></i> Posts</a>
         </li>
-        <li class="nav-item" *ngIf="strUsuarioSession">
+        <li class="nav-item pl-1" *ngIf="strUsuarioSession">
           <a class="nav-link" [class.active]="strUrl=='/create'" [routerLink]="['/create']"><i
               class="fa fa-paint-brush"></i> Nuevo Post</a>
         </li>
       </ul>
-      <span class="navbar-text" *ngIf="strUsuarioSession"><i class="fas fa-user"></i> Usuario: {{strUsuarioSession}}
+      <span class="navbar-text text-white-50  " *ngIf="strUsuarioSession">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user pl-5"></i> Usuario: {{strUsuarioSession}}
       </span>
-
     </div>
   </div>
 </nav>

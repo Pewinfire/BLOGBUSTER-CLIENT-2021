@@ -28,6 +28,8 @@ import { UpdateComponent } from './component/update/update.component';
 import { CheckPipe } from './pipe/check.pipe';
 import { ClockComponent } from './clock/clock.component';
 import { DialogoPostComponent } from './service/dialogo-post/dialogo-post.component';
+import { ReadComponent } from './read/read.component';
+import { LookComponent } from './component/look/look.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { DialogoPostComponent } from './service/dialogo-post/dialogo-post.compon
     CheckPipe,
     ClockComponent,
     DialogoPostComponent,
+    ReadComponent,
+    LookComponent,
     
 
 

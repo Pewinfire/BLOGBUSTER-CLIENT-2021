@@ -1,4 +1,5 @@
 <app-menu></app-menu>
+<div class="container">
 <div class="mt-5 mb-5 pt-3"></div>
 <div class="container mt-5">
     <div class="row">
@@ -21,7 +22,7 @@
                                 <div class="input-group" >
                                  <input id="table_filter" [(ngModel)]="matchHtml" (input)="filterOn(matchHtml)"  type="text" class="form-control" aria-label="Text input with segmented button dropdown" >
                                  <div class="input-group-btn" >
-                                  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false " value= ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
+                                  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false " value= ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
                                   <div class="dropdown-menu dropdown-menu-right" >
                                      <ul class="category_filters" >
                                         <li >
@@ -105,7 +106,7 @@
                     </div>
                     <div class="col text-end">
                         <div class="dropdown mb-3">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Registros por página: {{ pageSize }}
                             </button>
@@ -127,6 +128,8 @@
                     </div>
                 </div>
         </div>
+        </div>
+    </div>
        
 <footer>
     <div class="container pt-5 mt-5">
@@ -148,4 +151,4 @@
   
     </div>
   </footer>
-  
+</div>

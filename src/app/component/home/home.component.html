@@ -1,44 +1,56 @@
 <app-menu></app-menu>
+<div class="pt-3 mt-3"></div>
+<div class="jumbotron pt-3 mt-3 shadow-lg " style="height:333px">
+  <div class="container pt-5 mt-5 jmb ">
+    <h1 class="font-weight-bold">BLOGBUSTER</h1>
+    <br>
+    <p class="font-weight-bold">El blog que siempre quisiste tener, pero nunca te atreviste a programar</p>
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="p-5 mb-4 bg-light rounded-3">
-            <div class="text-center">
-                <h1><i class="fas fa-kiwi-bird"></i> </h1>
-                <h1>Bienvendos a {{title}}</h1>
-                <h6 class="text-muted text-monospace">Aplicación básica en Angular</h6>
-                <h6 class="text-muted text-monospace">Cliente de autenticación para servidor miriase</h6>
-                <h6 class="text-muted text-monospace">Enrutamiento de cliente</h6>
-                <h6 class="text-muted text-monospace">Validación con formulario reactivo</h6>
-                <h6 class="text-muted text-monospace">CORS</h6>
-                <h6 class="text-muted text-monospace">Llamadas AJAX al servidor miriase con RxJS</h6>
-                <h6 class="text-muted text-monospace">Control de la sesión AJAX check con localstorage</h6>
+  </div>
+</div>
+<div class="pt-5 mt-5"></div>
+<div class="container mx-auto mt-4">
+  <div class="row">
+    <div class="col-md-4 " *ngFor="let fila of aPosts">
+      <div class="card" style="width: 18rem;">
+        <img src="../../../assets/img/post.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{fila.titulo}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{fila.fecha| showDateTime}}</h6>
+          <p class="card-text">{{fila.cuerpo| trim: 20}}</p>
+          <a [routerLink]="['/read/' + fila.id]" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class="col">
+            <nav aria-label="pagination">
+                <ul class="pagination">
+                    <li class="page-item" aria-current="page" *ngFor="let p of barraPaginacion"
+                        [ngClass]="{ active: page + '' == p }">
+                        <a class="page-link" (click)="page = +p; getPage()">{{ p }}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md text-end">
+            <div class="dropdown mb-3">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Registros por página: {{pageSize}}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" (click)="pageSize=10;getPage()">10</a></li>
+                    <li><a class="dropdown-item" (click)="pageSize=50;getPage()">50</a></li>
+                    <li><a class="dropdown-item" (click)="pageSize=100;getPage()">100</a></li>
+                    <li><a class="dropdown-item" (click)="pageSize=1000;getPage()">1000</a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <h6>Conexión del control y la plantilla del componente HomeComponent</h6>
-        <p>Prueba de que angular funciona 9+6={{9+6}} (INTERPOLACIÓN)</p>
-        <p>Titulo de la aplicación web: {{title}}</p>
-    </div>
 
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">CAJA:</label>
-        <div class="col-sm-9">
-            <input [ngModel]="title" type="text" class="form-control mb-3" />
-        </div>
+    
     </div>
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">SALCHICHA EN CAJA:</label>
-        <div class="col-sm-9">
-            <input [(ngModel)]="title" type="text" class="form-control mb-3" />
-        </div>
-    </div>
-    <div class="row mb-3 justify-content-center">
-        <div class="col-auto">
-            <button (click)="reset()" class="btn btn-primary mb-3"><i class="fas fa-hotdog"></i>
-                RESET (SALCHICHA)
-            </button>
-        </div>
-    </div>
-</div>
+    
+  </div>

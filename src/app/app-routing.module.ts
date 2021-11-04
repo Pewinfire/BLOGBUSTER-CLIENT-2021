@@ -10,6 +10,7 @@ import { ViewComponent } from './component/view/view.component';
 import { CreateComponent } from './component/create/create.component';
 import { UpdateComponent } from './component/update/update.component';
 import { DeleteComponent } from './component/delete/delete.component';
+import { ReadComponent } from './read/read.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'create', component: CreateComponent, resolve: { message: SessionResolver } },
   { path: 'update/:id', component: UpdateComponent, resolve: { message: SessionResolver } },
   { path: 'delete/:id', component: DeleteComponent, resolve: { message: SessionResolver } },
+  { path: 'read/:id', component: ReadComponent, resolve: { message: SessionResolver } },
 
 ];
 

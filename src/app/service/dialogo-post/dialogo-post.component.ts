@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {  IPost } from 'src/app/model/model-interfaces';
 
@@ -8,15 +8,15 @@ import {  IPost } from 'src/app/model/model-interfaces';
   styleUrls: ['./dialogo-post.component.css'],
 })
 export class DialogoPostComponent implements OnInit {
-  oPost: IPost;
- 
+  
+  @Input() oPost: IPost;
   constructor(
     public dialogRef: MatDialogRef<DialogoPostComponent>,
     @Inject(MAT_DIALOG_DATA) data: IPost) {
       this.oPost = data;
     }
     ngOnInit() {
-      this.dialogRef.updateSize('50%', '75%');
+      this.dialogRef.updateSize('75%', '75%');
     }
     openDialog(){
     const dialogConfig = new MatDialogConfig();

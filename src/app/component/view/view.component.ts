@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IFecha, IPost } from 'src/app/model/model-interfaces';
 import { PostService } from 'src/app/service/post.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -16,6 +17,7 @@ export class ViewComponent implements OnInit {
   etiquetas: string;
   visible: boolean;
   Postid: number;
+  oLocation: Location;
   
    
   constructor(
@@ -39,7 +41,10 @@ export class ViewComponent implements OnInit {
       });
     };
   
- 
+    goBack() {
+      this.oLocation.back();
+    }
+  
      
      
   }
