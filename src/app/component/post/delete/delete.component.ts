@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IFecha, IPost } from 'src/app/model/model-interfaces';
-import { DialogoConfirmacionComponent } from 'src/app/service/dialogo-confirmacion/dialogo-confirmacion.component';
+import { DialogoConfirmacionComponent } from 'src/app/utils/dialogo-confirmacion/dialogo-confirmacion.component';
 import { PostService } from 'src/app/service/post.service';
 
 @Component({

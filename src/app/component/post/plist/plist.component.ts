@@ -1,10 +1,11 @@
-import { PaginationService } from './../../../service/pagination.service';
-import { PostService } from './../../../service/post.service';
+import { PaginationService } from '../../../service/pagination.service';
+import { PostService } from '../../../service/post.service';
 import { Component, OnInit } from '@angular/core';
 import { IDate, IPage, IPost } from 'src/app/model/model-interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogoPostComponent } from 'src/app/service/dialogo-post/dialogo-post.component';
+import { DialogoPostComponent } from 'src/app/utils/dialogo-post/dialogo-post.component';
+
 
 
 @Component({
@@ -43,6 +44,7 @@ export class PlistComponent implements OnInit {
     'fa fa-sort',
     'fa fa-sort',
   ]
+  result: number;
   
   
 
@@ -149,15 +151,31 @@ export class PlistComponent implements OnInit {
       });
   };
   updateVis(oPost: IPost){
-    var uPost: IPost = oPost
-    if(oPost.visible){
-      uPost.visible = false
-    }else{
-      uPost.visible = true
+    var postData = {
+      id: String(oPost.id),
+      titulo: oPost.titulo,
+      cuerpo: oPost.cuerpo,
+      fecha:  String(oPost.fecha.date.year).padStart(2,'0') +"-" + String(oPost.fecha.date.month).padStart(2,'0') + "-" + String(oPost.fecha.date.day).padStart(2,'0') +" " + String(oPost.fecha.time.hour).padStart(2,'0')  + ":" + String(oPost.fecha.time.minute).padStart(2,'0'), 
+      etiquetas: oPost.etiquetas,
+      visible : oPost.visible
     }
-    
-    console.log("post:onSubmit: ", uPost);
-    this.oPostService.update(JSON.stringify(uPost))
+    if(oPost.visible){
+      postData.visible = false
+      console.log("update", postData);  
+    }else{
+      postData.visible = true
+      console.log("update", postData);
+    }
+    this.oPostService.update(JSON.stringify(postData)).subscribe(success => {
+      this.result = success;
+      if (this.result == 1) {
+        this.getPage();
+      } else {
+        alert("Ha ocurrido un error");
+      }                        
+    });
+   
+   
   }
   modal(fila : IPost ){
       const dialogConfig = new MatDialogConfig;

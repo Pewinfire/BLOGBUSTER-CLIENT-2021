@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IPost } from '../model/model-interfaces';
-import { DialogoPostComponent } from '../service/dialogo-post/dialogo-post.component';
-import { PostService } from '../service/post.service';
+import { IPost } from 'src/app/model/model-interfaces';
+import { PostService } from 'src/app/service/post.service';
+
 
 @Component({
   selector: 'app-read',

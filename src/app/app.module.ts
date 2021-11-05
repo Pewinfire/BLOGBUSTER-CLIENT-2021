@@ -2,12 +2,10 @@ import { PaginationService } from './service/pagination.service';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
-import { SecretComponent } from './component/secret/secret.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { SessionService } from './service/session.service';
@@ -18,25 +16,25 @@ import { PostService } from './service/post.service';
 import { ViewComponent } from './component/view/view.component';
 import { TrimPipe } from './pipe/trim.pipe';
 import { showDateTimePipe } from './pipe/showDateTime.pipe';
-import { CreateComponent } from './component/create/create.component';
+import { CreateComponent } from './component/post/create/create.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogoConfirmacionComponent } from './service/dialogo-confirmacion/dialogo-confirmacion.component';
+import { DialogoConfirmacionComponent } from './utils/dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { DeleteComponent } from './component/delete/delete.component';
-import { UpdateComponent } from './component/update/update.component';
+import { DeleteComponent } from './component/post/delete/delete.component';
 import { CheckPipe } from './pipe/check.pipe';
-import { ClockComponent } from './clock/clock.component';
-import { DialogoPostComponent } from './service/dialogo-post/dialogo-post.component';
-import { ReadComponent } from './read/read.component';
+import { ClockComponent } from './utils/clock/clock.component';
 import { LookComponent } from './component/look/look.component';
+import { ReadComponent } from './component/read/read.component';
+import { UpdateComponent } from './component/post/update/update.component';
+import { DialogoPostComponent } from './utils/dialogo-post/dialogo-post.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    SecretComponent,
     LogoutComponent,
     MenuComponent,
     PlistComponent,
