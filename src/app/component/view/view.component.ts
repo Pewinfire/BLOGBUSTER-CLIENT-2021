@@ -32,6 +32,7 @@ export class ViewComponent implements OnInit {
     getOne = () => {
       this.Postid = this.oActivatedRoute.snapshot.params.id
       this.oPostService.getOne(this.Postid).subscribe((oPost: IPost) => {
+        this.id =oPost.id;
         this.titulo = oPost.titulo;
         this.cuerpo = oPost.cuerpo;
         this.fecha = oPost.fecha;

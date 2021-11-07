@@ -8209,20 +8209,20 @@ footer {
 .footer-07 {
   background: #222; }
   .footer-07 a {
-    color: #a3de83; }
+    color: white }
   .footer-07 p {
-    color: rgba(255, 255, 255, 0.3); }
+    color: white }
   .footer-07 .footer-heading {
     font-size: 30px;
     color: #fff;
     font-weight: 700;
     margin-bottom: 30px; }
     .footer-07 .footer-heading .logo {
-      color: #fff; }
+      color: white; }
   .footer-07 .menu {
     margin-bottom: 30px; }
     .footer-07 .menu a {
-      color: rgba(255, 255, 255, 0.6);
+      color: white;
       margin: 0 10px;
       text-transform: uppercase;
       letter-spacing: 1px; }

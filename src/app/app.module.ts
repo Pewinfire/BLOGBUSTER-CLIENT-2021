@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './component/login/login.component';
+import { LoginComponent } from './component/session/login/login.component';
 import { HomeComponent } from './component/home/home.component';
-import { LogoutComponent } from './component/logout/logout.component';
+
 import { MenuComponent } from './component/menu/menu.component';
 import { SessionService } from './service/session.service';
 import { HttpClientModule } from "@angular/common/http";
@@ -26,9 +26,10 @@ import { ClockComponent } from './component/utils/clock/clock.component';
 import { LookComponent } from './component/look/look.component';
 import { ReadComponent } from './component/read/read.component';
 import { UpdateComponent } from './component/post/update/update.component';
-import { FooterComponent } from './component/footer/footer.component';
+import { FooterComponent } from './component/utils/footer/footer.component';
 import { DialogoPostComponent } from './component/utils/dialogo-post/dialogo-post.component';
 import { DialogoConfirmacionComponent } from './component/utils/dialogo-confirmacion/dialogo-confirmacion.component';
+import { LogoutComponent } from './component/session/logout/logout.component';
 
 
 @NgModule({

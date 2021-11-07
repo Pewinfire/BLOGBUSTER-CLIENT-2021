@@ -1,9 +1,9 @@
 <app-menu></app-menu>
 
-<div class="container">
-    <form class="form-signin">
-        <img class="mb-4" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Por favor, identifiquese</h1>
+<div class="container pt-5 mt-5">
+    <form class="form-signin row">
+        <div class="d-flex flex-row justify-content-center alig-item-center">
+        <i class="fa fa-graduation-cap  fa-4x mb-3" aria-hidden="true"></i></div>
         <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="row g-3">
             <div class="col-12">
                 <label for="username" class="form-label">Nombre de usuario</label>
