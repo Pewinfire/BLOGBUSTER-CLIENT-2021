@@ -18,16 +18,17 @@ import { TrimPipe } from './pipe/trim.pipe';
 import { showDateTimePipe } from './pipe/showDateTime.pipe';
 import { CreateComponent } from './component/post/create/create.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogoConfirmacionComponent } from './utils/dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { DeleteComponent } from './component/post/delete/delete.component';
 import { CheckPipe } from './pipe/check.pipe';
-import { ClockComponent } from './utils/clock/clock.component';
+import { ClockComponent } from './component/utils/clock/clock.component';
 import { LookComponent } from './component/look/look.component';
 import { ReadComponent } from './component/read/read.component';
 import { UpdateComponent } from './component/post/update/update.component';
-import { DialogoPostComponent } from './utils/dialogo-post/dialogo-post.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { DialogoPostComponent } from './component/utils/dialogo-post/dialogo-post.component';
+import { DialogoConfirmacionComponent } from './component/utils/dialogo-confirmacion/dialogo-confirmacion.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { DialogoPostComponent } from './utils/dialogo-post/dialogo-post.componen
     DialogoPostComponent,
     ReadComponent,
     LookComponent,
+    FooterComponent,
     
 
 

@@ -4,7 +4,8 @@ import { ActivatedRoute, Router, ɵassignExtraOptionsToRouter } from '@angular/r
 import { IFecha } from 'src/app/model/model-interfaces';
 import { PostService } from 'src/app/service/post.service';
 import { MatDialog } from "@angular/material/dialog"
-import { DialogoConfirmacionComponent } from 'src/app/utils/dialogo-confirmacion/dialogo-confirmacion.component';
+import { DialogoConfirmacionComponent } from '../../utils/dialogo-confirmacion/dialogo-confirmacion.component';
+
 
 @Component({
   selector: 'app-create',
