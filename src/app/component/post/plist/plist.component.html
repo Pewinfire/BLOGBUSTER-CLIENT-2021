@@ -1,154 +1,159 @@
 <app-menu></app-menu>
 <div class="container">
-<div class="mt-5 mb-5 pt-3"></div>
-<div class="container mt-5">
+  <div class="mt-5 mb-5 pt-3"></div>
+  <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-10 mx-auto">
-           
-                <header class="mb-4">
-                    <h1 class="fw-bolder mb-5 pb-3">BlogBuster 2021</h1>
-                    <!-- Post meta content-->
-                   
-                </header>
-                <div class="row justify-content-center my-3">
-                    <div class="col text-start  ">
-                        <h3> Listado de Posts</h3>
-                    </div>
-                    <h4 class="text-muted col text-end mt-1">{{ totalElements }} registros</h4>
-                    <div class="col text-end  ">
-                        <div class="container">
-                            <div class="row searchFilter" >
-                               <div class="col-sm-12" >
-                                <div class="input-group" >
-                                 <input id="table_filter" [(ngModel)]="matchHtml" (input)="filterOn(matchHtml)"  type="text" class="form-control" aria-label="Text input with segmented button dropdown" >
-                                 <div class="input-group-btn" >
-                                  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false " value= ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
-                                  <div class="dropdown-menu dropdown-menu-right" >
-                                     <ul class="category_filters" >
-                                        <li >
-                                            <input #todoR type="radio" name="radios"  id="todoR" [checked]="check" (change)="onCheck(todoR.checked,campos[6])" ><label class="category-label" for="id" >Todo</label>
-                                           </li>
-                                      <li >
-                                       <input #idR type="radio" name="radios"  id="idR" [checked]="check" (change)="onCheck(idR.checked,campos[0])" ><label class="category-label" for="id" >Id</label>
-                                      </li>
-                                      <li >
-                                       <input #tituloR type="radio" name="radios"  id="tituloR" [checked]="check" (change)="onCheck(tituloR.checked,campos[1])" ><label class="category-label" for="titulo" >titulo</label>
-                                      </li>
-                                      <li >
-                                       <input #cuerpoR type="radio" name="radios"  id="cuerpoR" [checked]="check" (change)="onCheck(cuerpoR.checked,campos[2])" ><label class="category-label" for="cuerpo" >cuerpo</label>
-                                      </li>
-                                      <li >
-                                       <input #fechaR type="radio" name="radios"  id="fechaR" [checked]="check" (change)="onCheck(fechaR.checked,campos[3])" ><label class="category-label" for="fecha" >fecha</label>
-                                      </li>
-                                      <li >
-                                       <input #etiquetasR type="radio" name="radios"  id="etiquetasR" [checked]="check" (change)="onCheck(etiquetasR.checked,campos[4])" ><label class="category-label " for="etiquetas" >etiquetas</label>
-                                      </li>
-                                     </ul>
-                                  </div>
-                                  
-                                 </div>
-                                </div>
-                               </div>
-                            </div>
-                          
-                        
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th (click)="orderBut(campos[0],0) ">ID    <i [ngClass]="fa[0]" class="i mt-1" aria-hidden="true"></i></th>
-                                <th (click)="orderBut(campos[1],1)">Título    <i [ngClass]="fa[1]" class="i mt-1" aria-hidden="true"></i></th>
-                                <th (click)="orderBut(campos[2],2)">Cuerpo<i [ngClass]="fa[2]" class="i mt-1" aria-hidden="true"></i></th>
-                                <th (click)="orderBut(campos[3],3)">Fecha<i [ngClass]="fa[3]" class="i mt-1" aria-hidden="true"></i></th>
-                                <th (click)="orderBut(campos[4],4)">Etiquetas<i [ngClass]="fa[4]" class="i mt-1" aria-hidden="true"></i></th>
-                                <th (click)="orderBut(campos[5],5)">Visible<i [ngClass]="fa[5]" class="i mt-1" aria-hidden="true"></i></th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let fila of aPosts">
-                                <td>{{ fila.id }}</td>
-                                <td>{{ fila.titulo | trim: 10 }}</td>
-                                <td>{{ fila.cuerpo | trim: 10 }}</td>
-                                <td>{{ fila.fecha | showDateTime }}</td>
-                                <td>{{ fila.etiquetas | trim: 10 }}</td>
-                                <td style="text-align: center;" ><a class="btn btn-light" (click)="updateVis(fila)"><i class=" {{ fila.visible | checking}}"></i></a></td>
-                                <td>
-                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                                        <a class="btn btn-success" [class.active]="strUrl == '/view'"
-                                            [routerLink]="['/view/', fila.id]"><i class="fas fa-eye"></i></a>
-                                            <a class="btn btn-info" (click)="modal(fila)"><i class="fas fa-search"></i></a>
-                                            <a class="btn btn-warning" [class.active]="strUrl == '/update'"
-                                            [routerLink]="['/update/', fila.id]"><i class="fas fa-pen"></i></a>
-                                        
-                                            <a class="btn btn-danger" [class.active]="strUrl == '/danger'"
-                                            [routerLink]="['/delete/', fila.id]"><i class="fas fa-trash"></i></a>
-                                            
-                                        
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row justify-content-between">
-                    <div class="col">
-                        <nav aria-label="pagination">
-                            <ul class="pagination">
-                                <li class="page-item" aria-current="page" *ngFor="let p of barraPaginacion"
-                                    [ngClass]="{ active: page + '' == p }">
-                                    <a class="page-link" (click)="page = +p; getPage()">{{ p }}</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="col text-end">
-                        <div class="dropdown mb-3">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Registros por página: {{ pageSize }}
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li>
-                                    <a class="dropdown-item" (click)="pageSize = 10; getPage()">10</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" (click)="pageSize = 50; getPage()">50</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" (click)="pageSize = 100; getPage()">100</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" (click)="pageSize = 1000; getPage()">1000</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        </div>
-    </div>
-       
-<footer>
-    <div class="container pt-5 mt-5">
-  
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h6 class="text-muted lead">BLOGBUSTER</h6>
-          <h6 class="text-muted small">
-            MIT Licensed<br>
-          </h6>
-          <div class="redes-footer small">
-            <a href="https://github.com/rafaelaznar/blogBUSTER-client-2021">Blogbuster client</a><br>
-            <a href="https://github.com/rafaelaznar/blogbuster2021.git">Blogbuster server</a>
+      <div class="col-lg-10 mx-auto">
+
+        <header class="mb-4">
+          <h1 class="fw-bolder mb-5 pb-3">BlogBuster 2021</h1>
+          <!-- Post meta content-->
+
+        </header>
+        <div class="row justify-content-center my-3">
+          <div class="col text-start  ">
+            <h3> Listado de Posts</h3>
           </div>
-          <p class="text-muted small">Rafael Aznar @2021</p>
+          <h4 class="text-muted col text-end mt-1">{{ totalElements }} registros</h4>
+          <div class="col text-end  ">
+            <div class="container">
+              <div class="row searchFilter">
+                <div class="col-sm-12">
+                  <div class="input-group">
+                    <input id="table_filter" [(ngModel)]="matchHtml" (input)="filterOn(matchHtml)" type="text"
+                      class="form-control" aria-label="Text input with segmented button dropdown">
+                    <div class="input-group-btn">
+                      <button type="button" class="bts dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false " value=><span
+                          class="label-icon">Category</span> <span class="caret">&nbsp;</span></button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="category_filters">
+                          <li>
+                            <input #todoR type="radio" name="radios" id="todoR" [checked]="check"
+                              (change)="onCheck(todoR.checked,campos[6])"><label class="category-label"
+                              for="id">Todo</label>
+                          </li>
+                          <li>
+                            <input #idR type="radio" name="radios" id="idR" [checked]="check"
+                              (change)="onCheck(idR.checked,campos[0])"><label class="category-label"
+                              for="id">Id</label>
+                          </li>
+                          <li>
+                            <input #tituloR type="radio" name="radios" id="tituloR" [checked]="check"
+                              (change)="onCheck(tituloR.checked,campos[1])"><label class="category-label"
+                              for="titulo">titulo</label>
+                          </li>
+                          <li>
+                            <input #cuerpoR type="radio" name="radios" id="cuerpoR" [checked]="check"
+                              (change)="onCheck(cuerpoR.checked,campos[2])"><label class="category-label"
+                              for="cuerpo">cuerpo</label>
+                          </li>
+                          <li>
+                            <input #fechaR type="radio" name="radios" id="fechaR" [checked]="check"
+                              (change)="onCheck(fechaR.checked,campos[3])"><label class="category-label"
+                              for="fecha">fecha</label>
+                          </li>
+                          <li>
+                            <input #etiquetasR type="radio" name="radios" id="etiquetasR" [checked]="check"
+                              (change)="onCheck(etiquetasR.checked,campos[4])"><label class="category-label "
+                              for="etiquetas">etiquetas</label>
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th (click)="orderBut(campos[0],0) ">ID <i [ngClass]="fa[0]" class="i mt-1" aria-hidden="true"></i>
+                  </th>
+                  <th (click)="orderBut(campos[1],1)">Título <i [ngClass]="fa[1]" class="i mt-1" aria-hidden="true"></i>
+                  </th>
+                  <th (click)="orderBut(campos[2],2)">Cuerpo<i [ngClass]="fa[2]" class="i mt-1" aria-hidden="true"></i>
+                  </th>
+                  <th (click)="orderBut(campos[3],3)">Fecha<i [ngClass]="fa[3]" class="i mt-1" aria-hidden="true"></i>
+                  </th>
+                  <th (click)="orderBut(campos[4],4)">Etiquetas<i [ngClass]="fa[4]" class="i mt-1"
+                      aria-hidden="true"></i></th>
+                  <th (click)="orderBut(campos[5],5)">Visible<i [ngClass]="fa[5]" class="i mt-1" aria-hidden="true"></i>
+                  </th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let fila of aPosts">
+                  <td>{{ fila.id }}</td>
+                  <td>{{ fila.titulo | trim: 10 }}</td>
+                  <td>{{ fila.cuerpo | trim: 10 }}</td>
+                  <td>{{ fila.fecha | showDateTime }}</td>
+                  <td>{{ fila.etiquetas | trim: 10 }}</td>
+                  <td style="text-align: center;"><a class="btn btn-light" (click)="updateVis(fila)"><i
+                        class=" {{ fila.visible | checking}}"></i></a></td>
+                  <td>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+                      <a class="btn btn-success" [class.active]="strUrl == '/view'"
+                        [routerLink]="['/view/', fila.id]"><i class="fas fa-eye"></i></a>
+                      <a class="btn btn-info" (click)="modal(fila)"><i class="fas fa-search"></i></a>
+                      <a class="btn btn-warning" [class.active]="strUrl == '/update'"
+                        [routerLink]="['/update/', fila.id]"><i class="fas fa-pen"></i></a>
+
+                      <a class="btn btn-danger" [class.active]="strUrl == '/danger'"
+                        [routerLink]="['/delete/', fila.id]"><i class="fas fa-trash"></i></a>
+
+
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row justify-content-between">
+            <div class="col">
+              <nav aria-label="pagination">
+                <ul class="pagination">
+                  <li class="page-item" aria-current="page" *ngFor="let p of barraPaginacion"
+                    [ngClass]="{ active: page + '' == p }">
+                    <a class="page-link" (click)="page = +p; getPage()">{{ p }}</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col text-end">
+              <div class="dropdown mb-3">
+                <button class="bts dropdown-toggle" type="button" id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Registros por página: {{ pageSize }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a class="dropdown-item" (click)="pageSize = 10; getPage()">10</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="pageSize = 50; getPage()">50</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="pageSize = 100; getPage()">100</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="pageSize = 1000; getPage()">1000</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-  
       </div>
-  
     </div>
-  </footer>
+
+
+  </div>
 </div>
+<app-footer></app-footer>
