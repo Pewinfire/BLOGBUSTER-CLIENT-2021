@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { IDate, IPage, IPost } from 'src/app/model/model-interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogoPostComponent } from 'src/app/utils/dialogo-post/dialogo-post.component';
+import { DialogoPostComponent } from '../../utils/dialogo-post/dialogo-post.component';
+
 
 
 
@@ -192,4 +193,3 @@ export class PlistComponent implements OnInit {
       ;
   };
 }
-
