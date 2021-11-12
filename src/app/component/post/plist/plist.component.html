@@ -5,62 +5,77 @@
     <div class="row">
       <div class="col-lg-10 mx-auto">
 
-        <header class="mb-4">
-          <h1 class="fw-bolder mb-5 pb-3">BlogBuster 2021</h1>
-          <!-- Post meta content-->
+       <app-header></app-header>
 
-        </header>
-        <div class="row justify-content-center my-3">
+        <h4 class="text-muted m-4 text-end ">{{ totalElements }} registros</h4>
+        <div class="row my-3">
+          
           <div class="col text-start  ">
-            <h3> Listado de Posts</h3>
+            <h2> Listado de Posts </h2>
           </div>
-          <h4 class="text-muted col text-end mt-1">{{ totalElements }} registros</h4>
-          <div class="col text-end  ">
-            <div class="container">
+
+          <div class="col-5 mb-3">
+            <div class="container ">
               <div class="row searchFilter">
-                <div class="col-sm-12">
+                <div class="col-12">
                   <div class="input-group">
                     <input id="table_filter" [(ngModel)]="matchHtml" (input)="filterOn(matchHtml)" type="text"
-                      class="form-control" aria-label="Text input with segmented button dropdown">
-                    <div class="input-group-btn">
-                      <button type="button" class="bts dropdown-toggle dropdown-toggle-split"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false " value=><span
-                          class="label-icon">Category</span> <span class="caret">&nbsp;</span></button>
-                      <div class="dropdown-menu dropdown-menu-right">
+                      class="form-control">
+                    <div class="custom-radio-button">
+                      <button type="button" class="btn btn-dark">Buscar en</button>
+                      <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <div class="dropdown-menu">
                         <ul class="category_filters">
                           <li>
-                            <input #todoR type="radio" name="radios" id="todoR" [checked]="check"
-                              (change)="onCheck(todoR.checked,campos[6])"><label class="category-label"
-                              for="id">Todo</label>
+                            <label class="custom-radio-button">
+                              <input #idR type="radio" name="radios" id="idR" [checked]="check"
+                                (change)="onCheck(idR.checked,campos[0])">
+                              <span class="helping-el"></span>
+                              <span class="label-text">Id</span>
+                            </label>
                           </li>
                           <li>
-                            <input #idR type="radio" name="radios" id="idR" [checked]="check"
-                              (change)="onCheck(idR.checked,campos[0])"><label class="category-label"
-                              for="id">Id</label>
+                            <label class="custom-radio-button">
+                              <input #tituloR type="radio" name="radios" id="tituloR" [checked]="check"
+                                (change)="onCheck(tituloR.checked,campos[1])">
+                              <span class="helping-el"></span>
+                              <span class="label-text">Título</span>
+                            </label>
                           </li>
                           <li>
-                            <input #tituloR type="radio" name="radios" id="tituloR" [checked]="check"
-                              (change)="onCheck(tituloR.checked,campos[1])"><label class="category-label"
-                              for="titulo">titulo</label>
+                            <label class="custom-radio-button">
+                              <input #cuerpoR type="radio" name="radios" id="cuerpoR" [checked]="check"
+                                (change)="onCheck(cuerpoR.checked,campos[2])"> <span class="helping-el"></span>
+                              <span class="label-text">Cuerpo</span>
+                            </label>
                           </li>
                           <li>
-                            <input #cuerpoR type="radio" name="radios" id="cuerpoR" [checked]="check"
-                              (change)="onCheck(cuerpoR.checked,campos[2])"><label class="category-label"
-                              for="cuerpo">cuerpo</label>
+                            <label class="custom-radio-button">
+                              <input #fechaR type="radio" name="radios" id="fechaR" [checked]="check"
+                                (change)="onCheck(fechaR.checked,campos[3])"> <span class="helping-el"></span>
+                              <span class="label-text">Fecha</span>
+                            </label>
                           </li>
                           <li>
-                            <input #fechaR type="radio" name="radios" id="fechaR" [checked]="check"
-                              (change)="onCheck(fechaR.checked,campos[3])"><label class="category-label"
-                              for="fecha">fecha</label>
+                            <label class="custom-radio-button">
+                              <input #etiquetasR type="radio" name="radios" id="etiquetasR" [checked]="check"
+                                (change)="onCheck(etiquetasR.checked,campos[4])"> <span class="helping-el"></span>
+                              <span class="label-text">Etiquetas</span>
+                            </label>
                           </li>
+                          <div class=dropdown-divider></div>
                           <li>
-                            <input #etiquetasR type="radio" name="radios" id="etiquetasR" [checked]="check"
-                              (change)="onCheck(etiquetasR.checked,campos[4])"><label class="category-label "
-                              for="etiquetas">etiquetas</label>
+                            <label class="custom-radio-button">
+                              <input #todoR type="radio" name="radios" id="todoR" [checked]="check"
+                                (change)="onCheck(todoR.checked,campos[6])"> <span class="helping-el"></span>
+                              <span class="label-text">Todo</span>
+                            </label>
                           </li>
                         </ul>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -69,6 +84,7 @@
 
             </div>
           </div>
+          
           <div class="row justify-content-center">
             <table class="table table-bordered table-striped table-hover">
               <thead>
@@ -128,8 +144,8 @@
             </div>
             <div class="col text-end">
               <div class="dropdown mb-3">
-                <button class="bts dropdown-toggle" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="bts dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                  aria-expanded="false">
                   Registros por página: {{ pageSize }}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

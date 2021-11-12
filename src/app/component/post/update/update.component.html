@@ -1,18 +1,18 @@
 <app-menu></app-menu>
 <div class="mt-5 mb-5 pt-3"></div>
-<div class="container mt-5">
+<div class="container mt-5 ">
   <div class="row">
     <div class="col-lg-8">
 
-      <header class="mb-4">
-        <h1 class="fw-bolder mb-1">BlogBuster 2021</h1>
+      <div class="mb-4">
+         <app-header></app-header>
         <br>
         <h3 class=" mb-1">Modificar Post (ID: {{Postid}})</h3>
         <!-- Post meta content-->
-  
 
-      </header>
-      <div class="container">
+
+      </div>
+      <div class="container pb-5 mb-5">
         <div class="row ">
           <div class="col ">
             <div class="card mt-2 mx-auto  bg-light">
@@ -53,7 +53,8 @@
                         </div>
                         <div class="col-md-6 pt-3 form-group">
                           <label for="form_name">Hora</label>
-                          <input type="time" class="form-control" formControlName="hora" name="time" id="time" placeholder="Time">
+                          <input type="time" class="form-control" formControlName="hora" name="time" id="time"
+                            placeholder="Time">
                         </div>
                       </div>
                       <div class="row">

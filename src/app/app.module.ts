@@ -13,7 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { SessionResolver } from './resolve/session.resolve';
 import { PlistComponent } from './component/post/plist/plist.component';
 import { PostService } from './service/post.service';
-import { ViewComponent } from './component/view/view.component';
+import { ViewComponent } from './component/post/view/view.component';
 import { TrimPipe } from './pipe/trim.pipe';
 import { showDateTimePipe } from './pipe/showDateTime.pipe';
 import { CreateComponent } from './component/post/create/create.component';
@@ -23,13 +23,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { DeleteComponent } from './component/post/delete/delete.component';
 import { CheckPipe } from './pipe/check.pipe';
 import { ClockComponent } from './component/utils/clock/clock.component';
-import { LookComponent } from './component/look/look.component';
-import { ReadComponent } from './component/read/read.component';
+import { LookComponent } from './component/post/look/look.component';
+import { ReadComponent } from './component/post/read/read.component';
 import { UpdateComponent } from './component/post/update/update.component';
 import { FooterComponent } from './component/utils/footer/footer.component';
 import { DialogoPostComponent } from './component/utils/dialogo-post/dialogo-post.component';
 import { DialogoConfirmacionComponent } from './component/utils/dialogo-confirmacion/dialogo-confirmacion.component';
 import { LogoutComponent } from './component/session/logout/logout.component';
+import { HeaderComponent } from './component/utils/header/header.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { LogoutComponent } from './component/session/logout/logout.component';
     ReadComponent,
     LookComponent,
     FooterComponent,
+    HeaderComponent,
     
 
 

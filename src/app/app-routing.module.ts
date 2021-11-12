@@ -5,10 +5,10 @@ import { HomeComponent } from './component/home/home.component';
 
 import { SessionResolver } from './resolve/session.resolve';
 import { PlistComponent } from './component/post/plist/plist.component';
-import { ViewComponent } from './component/view/view.component';
+import { ViewComponent } from './component/post/view/view.component';
 import { CreateComponent } from './component/post/create/create.component';
 import { DeleteComponent } from './component/post/delete/delete.component';
-import { ReadComponent } from './component/read/read.component';
+import { ReadComponent } from './component/post/read/read.component';
 import { UpdateComponent } from './component/post/update/update.component';
 import { LogoutComponent } from './component/session/logout/logout.component';
 
