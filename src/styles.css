@@ -2,6 +2,7 @@
 
 html,
 body {
+  
   height: 100%;
   width: 100%;
 }
@@ -84,4 +85,7 @@ transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-
 {
     background-color: #272727 !Important;
     border: solid 1px #2c2c2c;
+}
+p,h1,h2,h3,h4, body, div{
+  font-family: 'Inconsolata', monospace;
 }

@@ -13,12 +13,7 @@ import { DialogoConfirmacionComponent } from '../../utils/dialogo-confirmacion/d
 export class DeleteComponent implements OnInit {
 
  
-  id: number;
-  titulo: string;
-  cuerpo: string;
-  fecha: IFecha;
-  etiquetas: string;
-  visible: boolean;
+  dPost: IPost;
   Postid: number;
   result: number;
 
@@ -45,12 +40,7 @@ export class DeleteComponent implements OnInit {
     getOne = () => {
       this.Postid = this.oActivatedRoute.snapshot.params.id
       this.oPostService.getOne(this.Postid).subscribe((oPost: IPost) => {
-        this.id = oPost.id;
-        this.titulo = oPost.titulo;
-        this.cuerpo = oPost.cuerpo;
-        this.fecha = oPost.fecha;
-        this.etiquetas = oPost.etiquetas;
-        this.visible = oPost.visible;
+       this.dPost=oPost;
         setTimeout(()=>{   this.dialogo
           .open(DialogoConfirmacionComponent, {
             data: `¿Esta seguro de que quiere borrar el post?`
@@ -58,19 +48,19 @@ export class DeleteComponent implements OnInit {
           .afterClosed()
           .subscribe((confirmado: Boolean) => {
             if (confirmado) {
-              this.oPostService.delete(this.id).subscribe(success => {
+              this.oPostService.delete(this.dPost.id).subscribe(success => {
                 this.result = success;
                                      
               });
               this.oRouter.navigate(['/plist'] ) 
             } else {
               
-              this.oRouter.navigate(['/view/' + this.id])
+              this.oRouter.navigate(['/view/' + this.dPost.id])
             }
           });
           
           
-      }, 2000);
+      }, 3500);
       });
     };
   }

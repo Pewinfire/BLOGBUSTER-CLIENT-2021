@@ -31,6 +31,9 @@ import { DialogoPostComponent } from './component/utils/dialogo-post/dialogo-pos
 import { DialogoConfirmacionComponent } from './component/utils/dialogo-confirmacion/dialogo-confirmacion.component';
 import { LogoutComponent } from './component/session/logout/logout.component';
 import { HeaderComponent } from './component/utils/header/header.component';
+import { RandomImgComponent } from './component/utils/random-img/random-img.component';
+import { SideComponent } from './component/utils/side/side.component';
+import { CommentsComponent } from './component/utils/comments/comments.component';
 
 
 @NgModule({
@@ -55,6 +58,9 @@ import { HeaderComponent } from './component/utils/header/header.component';
     LookComponent,
     FooterComponent,
     HeaderComponent,
+    RandomImgComponent,
+    SideComponent,
+    CommentsComponent,
     
 
 

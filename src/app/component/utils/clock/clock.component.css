@@ -5,7 +5,8 @@
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    background: rgb(255, 255, 255);
+  
+    background: rgb(36, 35, 35);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +14,7 @@
   
   .clock {
     height: 10vh;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 5vh;
     font-family: sans-serif;
     line-height: 10.2vh;
